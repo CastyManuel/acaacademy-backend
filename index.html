@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCA Academy - Plataforma Escolar</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#075E54">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href#02073b://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.min.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <!-- Desktop Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">
+          
+        </div>
+        <span class="logo-text">MCA Academy</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-link active" data-page="home">🏠 <span>Home</span></a>
+        <a href="#" class="nav-link" data-page="dados">📁 <span>Dados</span></a>
+        <a href="#" class="nav-link" data-page="chat">💬 <span>Chat</span></a>
+        <a href="#" class="nav-link" data-page="sair" id="btn-logout">🚪 <span>Sair</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <div class="logo-icon mobile-only">MCA</div>
+          <h1 class="header-title mobile-only">MCA Academy</h1>
+          <span class="header-welcome desktop-only">Bem-vindo de volta!</span>
+      
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" id="btn-notifications">
+            🔔<span class="badge">3</span>
+          </button>
+          <button class="icon-btn" id="btn-quick-msg">💬</button>
+        </div>
+      </header>
+
+      <!-- Pages -->
+      <main class="content" id="content">
+        <!-- Filled by JS -->
+      </main>
+
+      <!-- Mobile Bottom Nav -->
+      <nav class="bottom-nav" id="bottom-nav">
+        <a href="#" class="bnav-item active" data-page="home">🏠<span>Home</span></a>
+        <a href="#" class="bnav-item" data-page="dados">📁<span>Dados</span></a>
+        <a href="#" class="bnav-item" data-page="chat">💬<span>Chat</span></a>
+        <a href="#" class="bnav-item" data-page="sair" id="btn-logout-mobile">🚪<span>Sair</span></a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div class="modal-overlay" id="login-modal">
+    <div class="modal login-modal">
+      <div class="login-header">
+        <div class="logo-icon large"><img src="assets/logo-dark.png" alt="" width="40px"></div>
+        <h2>MCA Academy</h2>
+        <p>Faça login para continuar</p>
+        <div id="login-error" class="hidden"></div>
+      </div>
+      <form id="login-form">
+        <input type="text" id="login-codigo" placeholder="Codigo Estudantil" required>
+        <input type="password" id="login-password" placeholder="Senha" required>
+        <button type="submit" class="btn-primary">Entrar</button>
+      </form>
+      <p class="login-register">Esqueceu a Senha? <a href="#" id="show-register">Recupere-a</a></p>
+    </div>
+  </div>
+
+
+  <div id="splash" class="hidden splash">
+  <div class="splash-content">
+    <div class="avatar" id="splash-avatar"></div>
+    <p id="splash-text">Bem-vindo</p>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="recover-modal">
+  <div class="modal">
+    <h3>Recuperar Senha</h3>
+    <input type="email" id="recover-email" placeholder="Digite seu email">
+    <button id="recover-btn">Enviar</button>
+  </div>
+</div>
+
+  <!-- Register Modal -->
+  <div class="modal-overlay hidden" id="register-modal">
+    <div class="modal login-modal">
+      <div class="login-header">
+        <div class="logo-icon large">E</div>
+        <h2>Criar Conta</h2>
+      </div>
+      <form id="register-form">
+        <input type="text" id="reg-name" placeholder="Nome completo" required>
+        <input type="email" id="reg-email" placeholder="Email" required>
+        <input type="password" id="reg-password" placeholder="Senha" required>
+        <select id="reg-type">
+          <option value="aluno">Aluno</option>
+          <option value="secretaria">Secretaria</option>
+        </select>
+        <button type="submit" class="btn-primary">Cadastrar</button>
+      </form>
+      <p class="login-register"><a href="#" id="show-login">Voltar ao login</a></p>
+    </div>
+  </div>
+
+  <!-- Quick Message Modal -->
+  <div class="modal-overlay hidden" id="quick-msg-modal">
+    <div class="modal">
+      <h3>Envio Rápido</h3>
+      <textarea id="quick-msg-text" placeholder="Digite sua mensagem..." rows="4"></textarea>
+      <div class="modal-actions">
+        <button class="btn-secondary" id="quick-msg-cancel">Cancelar</button>
+        <button class="btn-primary" id="quick-msg-send">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast hidden" id="toast"></div>
+
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/chat.js"></script>
+
+
+</body>
+</html>
